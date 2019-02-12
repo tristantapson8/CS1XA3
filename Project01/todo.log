@@ -1,0 +1,4 @@
+project_analyze.sh:            # search all files, find all lines with #TODO tag and add it to todo.log
+project_analyze.sh:            find . -type f | grep --exclude=todo.log -ir "#TODO" > todo.log
+project_analyze.sh:            echo "All #TODO messages added to todo.log succesfully";
+testfile.txt:#TODO just a test, bro
