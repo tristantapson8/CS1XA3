@@ -13,13 +13,14 @@ echo "and simply press enter!"
 echo " "
 
 # User prompt message and user options 
-PS3='Please enter a numbered (1-8) choice: '
+PS3='Please enter a numbered (1-9) choice: '
 options=("TODO Log" 
          "Merge Log" 
          "File Type Count"
          "Delete Temporary Files"
          "Check the Weather"
          "Compile Error Log"
+         "Repository Status"
          "Help"
          "Quit")
 
@@ -151,6 +152,30 @@ do
         done                                   
         echo " ";;
 
+        # REPO
+        "Repository Status")
+
+        echo " ";
+        echo "You chose option $REPLY - $option!";
+        
+        LOC=$(git rev-parse origin/master)
+        REM=$(git rev-parse master)
+        BASE=$(git merge-base master)
+
+        if [ $LOC == $REM ]; then
+           echo "Your local repository is up to date with the remote!";
+        elif [ $LOC == $BASE ]; then
+           echo "Need to pull"
+        elif [ $REMOTE == $BASE]; then
+           echo "Need to push"
+        else
+           echo "You dun gooofed somewhere"
+           #echo "Your local repository is NOT up to date with the remote!";
+           #echo "Consider doing a pull before starting...;"
+           #git status
+        fi
+        echo " ";;
+
         # HELP MENU IF USER FORGETS FEATURES
         "Help")
 
@@ -160,10 +185,11 @@ do
             echo "To use a feature, type in the corresponding number,"
             echo "and simply press enter!"
             echo " ";
-            echo "1) TODO Log               5) Check the Weather"
-            echo "2) Merge Log              6) Compile Error Log"
-            echo "3) File Type Count        7) Help"
-            echo "4) Delete Temporary Files 8) Quit";
+            echo "1) TODO Log               6) Compile Error Log"
+            echo "2) Merge Log              7) Repository Status"
+            echo "3) File Type Count        8) Help"
+            echo "4) Delete Temporary Files 9) Quit";
+            echo "5) Check the Weather"
             echo " ";;
  
         # QUIT / SCRIPT TERMINATION 
@@ -175,7 +201,7 @@ do
             echo " ";
             break;;
 
-        # Illegal option selected (anything other than 1-8)
+        # Illegal option selected (anything other than 1-9)
         *) echo "Invalid option!";
            echo " ";;
     esac
