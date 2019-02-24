@@ -107,7 +107,7 @@ do
             git ls-files . --exclude-standard --others
             echo " ";;
 
-        # BONUS FEATURE - Checking the Weather
+        # BONUS FEATURE 1 - CHECKING THE WEATHER
         "Check the Weather")
 
             echo " ";
@@ -152,7 +152,7 @@ do
         done                                   
         echo " ";;
 
-        # REPOSITORY STATUS
+        # BONUS FEATURE 2 - REPOSITORY STATUS
         "Repository Status")
 
         echo " ";
@@ -167,13 +167,14 @@ do
         # checks if the local host and the remote host are syncronized 
         if [ $LOC == $REM ]; then
            echo "Your local repository is up to date with the remote!";
+           echo "No git pull needed - begin working as intended."
         else 
            echo "Your local repository is NOT up to date with the remote.";
-           echo "Consider doing a git pull before starting your work!";
+           echo "Consider doing a GIT PULL before starting your work!";
            echo "Changes on remote found below: ";
            echo " ";
            
-           # displays all new files found in the remote host
+           # displays all new files/commits found in the remote host
            git whatchanged origin/master -n 1
         fi
 
