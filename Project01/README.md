@@ -2,10 +2,11 @@
 ## How to Use
   This script is a user prompted interactive script.
   The user simply runs the script like any other via ./
-  and proceeds to follow instructions. The user is prompted
+  (in this case, ./project_analyze.sh), and proceeds to follow 
+  instructions via terminal screen text. The user is prompted
   for a number (1-9) depending on which feature they want to
   use, and the script does said feature; 1-8 will be features
-  assigned according to the assignment outline, 9 to terminate
+  assigned according to the assignement outline, 9 to terminate
   the script. To use a feature, just enter the number according
   to the feature you wish to use, and then press enter.
 
