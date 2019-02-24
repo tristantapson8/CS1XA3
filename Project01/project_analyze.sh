@@ -152,30 +152,32 @@ do
         done                                   
         echo " ";;
 
-        # REPO
+        # REPOSITORY STATUS
         "Repository Status")
 
         echo " ";
         echo "You chose option $REPLY - $option!";
+        echo " ";
+
+        $(git fetch origin)
         
         LOC=$(git rev-parse origin/master)
         REM=$(git rev-parse master)
-        BASE=$(git merge-base master)
-
+       
+        # checks if the local host and the remote host are syncronized 
         if [ $LOC == $REM ]; then
            echo "Your local repository is up to date with the remote!";
-        elif [ $LOC == $BASE ]; then
-           echo "Need to pull"
-        elif [ $REMOTE == $BASE]; then
-           echo "Need to push"
-        else
-           echo "You dun gooofed somewhere"
-           #echo "Your local repository is NOT up to date with the remote!";
-           #echo "Consider doing a pull before starting...;"
-           #git status
+        else 
+           echo "Your local repository is NOT up to date with the remote.";
+           echo "Consider doing a git pull before starting your work!";
+           echo "Changes on remote found below: ";
+           echo " ";
+           
+           # displays all new files found in the remote host
+           git whatchanged origin/master -n 1
         fi
-        echo " ";;
 
+        echo " ";;
         # HELP MENU IF USER FORGETS FEATURES
         "Help")
 
