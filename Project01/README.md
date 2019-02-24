@@ -31,9 +31,9 @@
   extension. Before and after deletion(s) are displayed to the user to verify
   that the feature is working as intended.
 
-### 5 - Check the Weather (Boonus Feature 1)
+### 5 - Check the Weather (Bonus Feature 1)
   Using curl, gives the user the weather forecast of the next 3 days in their
-  local area
+  local area.
 
 ### 6 - Compile Error Log 
   Finds all haskell & python files via recursive decent from the home directory
