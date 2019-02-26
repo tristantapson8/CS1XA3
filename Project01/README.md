@@ -48,6 +48,10 @@
   used before a user sits down to work, and notifies them if any changes have been
   made to their remote repo via comparison to the local repo. After doing so, it 
   recommends a git pull, and displays all the changed made in the remote repository.
+  (If you want to test this feature, make a change to the remote host that isnt also
+  done on the local host, to see the warning message and the changes displayed via 
+  git whatchanged. Otherwise, it will just notify you that your local host is up 
+  to date with the remote host).
 
 ### 8 - Help Menu
   Simple display as to what feature correseponds to what number. This is displayed
