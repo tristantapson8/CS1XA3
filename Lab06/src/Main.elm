@@ -54,8 +54,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
  div []
-    [ input [ placeholder "string1", value model.string1, onInput String1 ] []
-    , input [ placeholder "string2", value model.string2, onInput String2 ] []
+    [ input [ placeholder "String 1", value model.string1, onInput String1 ] []
+    , input [ placeholder "String 2", value model.string2, onInput String2 ] []
     , div [] [ text ( model.string1 ++ " : " ++ model.string2 )]
     ]
 
