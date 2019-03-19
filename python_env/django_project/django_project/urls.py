@@ -14,15 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path 
+from django.urls import path, include
 
 from django.http import HttpResponse
 
-def testreq(request):
-    html = "<html><body>Hello World</body></html>"
+def get_vars(request):
+  name = request.GET.get("name","")
+  age = request.GET.get("age","")
+
+  html = "<html><body>" + name + " " + age + "</body></html>"
+  return HttpResponse(html)
+
+def post_vars(response):
+    name = response.POST.get("name", "")
+    age = response.POST.get("age", "")
+
+    html = "<html><body>" + name + " is " + age + "</body></html>"
     return HttpResponse(html)
 
-root = "e/tapsonte/"
-urlpatterns = [
-    path(root , include("testreq.urls")),
+
+urlpatterns = [ 
+    path("e/tapsonte/gettest/" , get_vars) ,
+    path("e/tapsonte/posttest/", post_vars) ,
 ]
