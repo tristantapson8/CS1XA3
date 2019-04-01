@@ -2,10 +2,11 @@
 
 Template taken from: https://webthemez.com/html-resume-website-templates-free/
 
-Webpage can be found at: https://mac1xa3.ca/u/tapsonte/index.html
-
 NOTE: Some of the other accompanying files are directly from the template zip 
       download, and left as is.
+
+Webpage can be found at: https://mac1xa3.ca/u/tapsonte/index.html
+
 
 
 ## Elm App
@@ -34,6 +35,8 @@ NOTE: Some of the other accompanying files are directly from the template zip
  - Score is determined by the bet amount (Riskier bets means higher score!)
  - If you wish to play again, or reset the game at any time, press the orange dollar
    sign button below to reset to a new game
+
+Code for this app is located in CS1XA3/Project02/crapsWG.elm
 
 NOTE: Game was changed from initial proposal.
 
