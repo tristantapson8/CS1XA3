@@ -1,8 +1,7 @@
-# posts/urls.py
-from django.urls import path
-
-from .views import HomePageView
+from django.conf.urls import url
+from . import views
 
 urlpatterns = [
-    path('e/tapsonte/discBoard/', HomePageView.as_view(), name='home'), # disc board url
-]
+    url(r'^e/tapsonte/register/$', IndexView.as_view()),
+    ]
+
