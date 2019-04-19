@@ -66,7 +66,8 @@ def post_register(request):
         password = form.cleaned_data.get('password')
         user.set_password(password)
         user.save()
-
+        
+        
         newuser = authenticate(username = user.username, password = password)
         login(request, newuser)
         print("registered user " + newuser.username)

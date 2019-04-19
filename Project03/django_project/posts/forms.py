@@ -22,19 +22,19 @@ class UserLoginForm(forms.Form):
             
             user = authenticate(username = username, password = password)
             if not user:
-                raise forms.ValidationError("This user does not exist")
-
-            if not user.check_password(password):
-                raise forms.ValidationError("This password is incorrect")
-
-            if not user.is_active:
-                raise forms.ValidationError("This user is no longer active")
+                raise forms.ValidationError("Invalid username or password")
 
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
 class UserRegisterForm(forms.ModelForm):
+    username = forms.CharField()
+    password = forms.CharField()
+
     class Meta:
         model = User
         fields = ['username', 'password']
+        help_texts = {
+            'username': None,
+        } 
 
 

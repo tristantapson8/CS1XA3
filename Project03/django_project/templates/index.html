@@ -1,5 +1,6 @@
 
 {{ form.media }}
+{% load static from staticfiles %}
 
 <!DOCTYPE html>
 <html>
@@ -11,11 +12,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul{
-	padding: 0;
-	margin: 0 0 0 150px;
-	list-style:none;
-}
 
 .topnav {
   overflow: hidden;
@@ -62,14 +58,8 @@ ul{
  font-weight: bold;	 
  font-size: 25;
  color: black;
+ text-align:left;	 
 
-}
-
-.logo img{
- position: absolute;
- margin-top:15px;	 
- margin-left:10px;
- 
 }
 
 
@@ -79,11 +69,8 @@ ul{
 </head>
 <body>
 
-<div class ="logo"><a href = "#"><img src = "sl.jpg"></a>
-</div> 
-
 <div class="topnav">
-  <a class="active"> sl </a>	
+  <!-- a class="active"> sl </a> -->	
   <a class="active"> slackLite </a>
   <a href="//mac1xa3.ca/e/tapsonte/">Login</a>
   <a href="//mac1xa3.ca/e/tapsonte/register/">Register</a>
@@ -103,8 +90,9 @@ ul{
 </div><!--end log form -->
 
 
-
-<img src="sl.jpg" width="460" height="345">
+   {% block header %}
+   <!-- <img src={% static "slack-1-logo-png-transparent.png" %} width="460" height="345"> -->
+   {% endblock %}
 
 {% endblock content %}
 
