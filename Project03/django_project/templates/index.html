@@ -1,7 +1,17 @@
-<html>
-<header><title>This is title</title></header>
-<body>
-Home Page (Login)
-</body>
-</html>
 
+{{ form.media }}
+
+
+{% block content %}
+<div class="log-form">
+        <h2> {{ title }} </h2>
+        <form method = 'POST' action = ''>{% csrf_token %}
+                {{ form.as_p}}
+    <!-- <input type="text" title="username" placeholder="username" />
+    <input type="password" title="username" placeholder="password" /> -->
+    <button type="submit" class="btn">Login</button>
+  </form>
+</div><!--end log form -->
+{% endblock content %}
+
+    

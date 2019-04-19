@@ -1,6 +1,16 @@
-<!DOCTYPE html>
-<html>
-<body>
-Register Page
-</body>
-</html>
+
+{{ form.media }}
+
+
+{% block content %}
+<div class="log-form">
+        <h2> {{ title }} </h2>
+        <form method = 'POST' action = ''>{% csrf_token %}
+                {{ form.as_p}}
+    <!-- <input type="text" title="username" placeholder="username" />
+    <input type="password" title="username" placeholder="password" /> -->
+    <button type="register" class="btn">register</button>
+  </form>
+</div><!--end log form -->
+{% endblock content %}
+
