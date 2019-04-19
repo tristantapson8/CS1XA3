@@ -27,7 +27,7 @@ class IndexView(TemplateView):
 def post_home(request):
     
     form = UserLoginForm(request.POST or None)
-    title = "Login"
+    title = "Log-In"
     context = {"form":form, "title": title}
 
     #print(request.user.is_authenticated())

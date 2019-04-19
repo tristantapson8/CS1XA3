@@ -20,12 +20,12 @@ from django.contrib import admin
 from posts import views
 
 urlpatterns = [
-   url ('e/tapsonte/', admin.site.urls), 
+  # url ('e/tapsonte/', admin.site.urls), 
    # url(r'^e/tapsonte/posts/$', "posts.views.post_home"),
    # url(r'^e/tapsonte/posts/$', 'posts.views.post_home'),
     
    
-   url (r'^e/tapsonte/home/$', views.post_home),
+   url (r'^e/tapsonte/$', views.post_home),
    url (r'^e/tapsonte/register/$', views.post_register),
    url (r'^e/tapsonte/disc/$', views.post_disc, name = 'disc'),
    url (r'^e/tapsonte/update/$', views.post_update),
