@@ -1,6 +1,6 @@
 
 {{ form.media }}
-{% load static from staticfiles %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
@@ -80,11 +80,15 @@ body {
 {% block content %}
 
 <div class="log-form">
-        <h2> {{ title }} </h2>
+        <h2> Log-In </h2>
         <form method = 'POST' action = ''>{% csrf_token %}
-                {{form.as_p}}
-    <!-- <input type="text" title="username" placeholder="username" />
-    <input type="password" title="username" placeholder="password" /> -->
+                
+	   
+                {{form.as_p}}	
+
+		<!-- <input class="form-control" placeholder="Username" id="username" maxlength="254" name="username" type="text" required autofocus=""/> -->
+		<!-- <input type="password" class="form-control" placeholder="Password" id="id_password" name="password"  required /> -->
+
     <button type="submit" class="btn">Login</button>
   </form>
 </div><!--end log form -->

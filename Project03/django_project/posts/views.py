@@ -11,7 +11,7 @@ from django.contrib.auth import (
         )
 
 from .forms import UserLoginForm, UserRegisterForm
-
+from .models import Post
 
 
 class IndexView(TemplateView):
@@ -27,8 +27,9 @@ class IndexView(TemplateView):
 def post_home(request):
     
     form = UserLoginForm(request.POST or None)
-    title = "Log-In"
-    context = {"form":form, "title": title}
+    title = "Discussion"
+    #titleU = ""
+    context = {"form": form, "title": title}
 
     #print(request.user.is_authenticated())
     print("not logged on")
@@ -38,17 +39,24 @@ def post_home(request):
        password = form.cleaned_data.get("password")
 
        user = authenticate(username = username, password = password)
-    
+       titleU = "Welcome to slackLite, " + username + "!"
+       queryset = Post.objects.all()
+
+       contextU = {"form": form, "titleU": titleU, "queryset": queryset}
+
 
        if user is not None:
            login(request, user)
            print("logged on")
-           return render(request, IndexView.template_name_disc, context)
+           #titleU = titleU + "Welcome " + username + "!"
+           return render(request, IndexView.template_name_disc, contextU)
 
        else:
            print("Stuck in Limbo")
-    
-   
+
+    #context = {"form":form, "title": title, "titleU": titleU}
+       
+
     #context = {}
     return render(request, IndexView.template_name_home, context)
 
