@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+from django.core import serializers
 
 from django.views.generic import TemplateView
 import json
@@ -10,7 +11,7 @@ from django.contrib.auth import (
         logout,
         )
 
-from .forms import UserLoginForm, UserRegisterForm
+from .forms import UserLoginForm, UserRegisterForm, UserPostForm
 from .models import Post
 
 
@@ -82,19 +83,46 @@ def post_register(request):
     
     return render(request, IndexView.template_name_reg, context)
 
+
 def post_disc(request):
+
+    queryset = ( Post.objects.all())
+    #qs_json = serializers.serialize('json', queryset)
+
+    #i = request.session.get('counter', queryset)
+    #request.session['counter'] = i
+
     context = {
             
-            "title": "User Posts"
+            "titleU": "Discussion Board", "queryset": queryset
             
             }
     return render(request, IndexView.template_name_disc, context)
+    #return render(request, IndexView.template_name_disc, qs_json)
+    #return HttpResponse("Counter = " + str(request.session['counter']))
 
 def post_update(request):
-    context = {}
+    form = UserPostForm(request.POST or None)
+
+    if form.is_valid():
+        instance = form.save()
+        instance.save()
+
+    context =  {"form": form}
     return render(request, IndexView.template_name_up, context)
  
 def post_delete(request):
-    context = {}
+
+    qs = Post.objects.all()
+    ys = '-'.join([str(i) for i in qs])
+
+    di = request.session.get('counter2', "HELLO")
+    request.session['counter2'] = di+ " " + ys
+    this = str(request.session['counter2'])
+
+   # return HttpResponse("Counter = " + str(request.session['counter2']))
+
+
+    context = {"this": this} 
     return render(request, IndexView.template_name_del, context)
 

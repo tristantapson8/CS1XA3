@@ -1,4 +1,5 @@
 from django import forms
+from .models import Post
 
 from django.contrib.auth import (
         authenticate,
@@ -36,5 +37,15 @@ class UserRegisterForm(forms.ModelForm):
         help_texts = {
             'username': None,
         } 
+
+class UserPostForm(forms.ModelForm):
+    class Meta:
+
+        model = Post
+        fields = ["title", "content"]
+
+
+
+
 
 
