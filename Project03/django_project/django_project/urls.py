@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 # from django.urls import include, path
 
 from posts import views
@@ -37,4 +39,5 @@ urlpatterns = [
    # path('e/tapsonte/update/', views.posts_update),
    # path('e/tapsonte/delete/', views.posts_delete),
 
-
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
