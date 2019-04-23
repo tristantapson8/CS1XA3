@@ -87,10 +87,29 @@ def post_register(request):
 def post_disc(request):
 
     queryset = ( Post.objects.all())
+
+    '''
+    query = request.GET.get("search")
+    if not query or None:
+
+        print("query database with " + str(query))
+
+        queryset_list = query.filter(title="test")
+
+        contextQ = {
+
+             "titleU": "Discussion Board", "queryset_list": queryset_list
+
+             }
+
+        return render(request, IndexView.template_name_disc, contextQ)
+
     #qs_json = serializers.serialize('json', queryset)
 
     #i = request.session.get('counter', queryset)
     #request.session['counter'] = i
+
+    '''
 
     context = {
             

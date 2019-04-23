@@ -126,10 +126,12 @@ body {
   <a href="//mac1xa3.ca/e/tapsonte/delete/">About</a>
 
   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
+	  
+	  <form method = 'GET' action = ''>{% csrf_token %}
+
+	    <input type="text" placeholder="Search.." name="search" value ="test"/>
       <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+      </form> 
   </div>
 
 
