@@ -31,7 +31,7 @@ urlpatterns = [
    url (r'^e/tapsonte/register/$', views.post_register),
    url (r'^e/tapsonte/disc/$', views.post_disc, name = 'disc'),
    url (r'^e/tapsonte/update/$', views.post_update),
-   url (r'^e/tapsonte/delete/$', views.post_delete),
+   url (r'^e/tapsonte/about/$', views.post_about),
 ] 
 
    # path('e/tapsonte/register/', views.posts_register),

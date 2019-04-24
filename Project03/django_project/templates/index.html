@@ -1,6 +1,6 @@
 
 {{ form.media }}
-{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -75,7 +75,7 @@ body {
   <a class="active"> slackLite </a>
   <a href="//mac1xa3.ca/e/tapsonte/">Login</a>
   <a href="//mac1xa3.ca/e/tapsonte/register/">Register</a>
-  <a href="//mac1xa3.ca/e/tapsonte/delete/">About</a>
+  <a href="//mac1xa3.ca/e/tapsonte/about/">About</a>
 </div>
 
 {% block content %}
@@ -96,7 +96,7 @@ body {
 
 
    {% block header %}
-   <!-- <img src={% static "img/search.svg" %} width="460" height="345"> -->
+    <!-- <img src= {% static "/img/path.jpg" %} width="460" height="345"> --}
    {% endblock %}
 
 {% endblock content %}

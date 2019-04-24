@@ -52,7 +52,7 @@ body {
   margin: 4px 2px;
   cursor: pointer;
 }
-.log-form{
+.disc-form{
  font-family: Arial;
  font-weight: bold;	 
  font-size: 25;
@@ -123,13 +123,12 @@ body {
   <a class="active"> slackLite </a>
   <a href="//mac1xa3.ca/e/tapsonte/">Logout</a>
   <a href="//mac1xa3.ca/e/tapsonte/update/">Create Post</a>
-  <a href="//mac1xa3.ca/e/tapsonte/delete/">About</a>
 
   <div class="search-container">
 	  
-	  <form method = 'GET' action = ''>{% csrf_token %}
+	  <form action = ''>
 
-	    <input type="text" placeholder="Search.." name="search" value ="test"/>
+	    <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
       </form> 
   </div>
@@ -140,21 +139,24 @@ body {
 
 {% block content %}
 
-<div class="log-form">
+<div class="disc-form">
+
+	<center>
         <h2> {{ titleU }} </h2>
         <form method = 'POST' action = ''>{% csrf_token %}
+		
 
 		{% for obj in queryset %}
             
                 {{ obj.title }}<br/> 
 		{{ obj.content }}<br/>
                 {{ obj.timestamp }}<br/>
-                {{ obj.id }}<br/>
+                posted by: {{ obj.author }}<br/>
                 <br/>
  
 		{% endfor %}
    
-
+                </center>
 
  
         </form>
@@ -162,7 +164,6 @@ body {
 
 
    {% block header %}
-   <!-- <img src={% static "slack-1-logo-png-transparent.png" %} width="460" height="345"> -->
    {% endblock %}
 
 {% endblock content %}
