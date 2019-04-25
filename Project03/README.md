@@ -23,15 +23,11 @@ App page can be found at: https://mac1xa3.ca/u/tapsonte/project03.html
 
 ### App Features
 
-  User Authentication: Allows for the registration and login of a user provided that a valid
+  - User Authentication: Allows for the registration and login of a user provided that a valid
                        username and password is given, making use of forms rather than JSON.
                        Messages are displayed depending on valid login/register attemps, and
                        a personalized message is given to the user after a sucessfull login.
   
-  Databases: User posts can be created and stored in a database with various fields, primarily
+  - Databases: User posts can be created and stored in a database with various fields, primarily
              author, post content, and a timestamp. These posts are then displayed on the
              main discussion board page, which can be filted by content with the search bar.
-
-
-
-
