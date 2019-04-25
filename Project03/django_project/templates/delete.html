@@ -69,15 +69,23 @@ ul{
   <a class="active"> slackLite </a>
   <a href="//mac1xa3.ca/e/tapsonte/">Login</a>
   <a href="//mac1xa3.ca/e/tapsonte/register/">Register</a>
-  <a href="//mac1xa3.ca/e/tapsonte/delete/">About</a>
+  <a href="//mac1xa3.ca/e/tapsonte/about/">About</a>
 </div>
 
 {% block content %}
 
 <div class="log-form">
-        <h2> Help info goes here... </h2>
 
-	<h3> {{this}} </h3}
+        <h2> Features of this App</h2>
+        <h5> - Use the register page to sign up with a username and password </h5>
+        <h5> - Once registered, use the login page to login with your credentials </h5>
+        <h5> - After logging in, you can view the discussion board, or create a post </h5>
+        <h5> - Logout once you are done using the app! </h5>
+
+	<form action="https://mac1xa3.ca/e/tapsonte/" method="get" target="_blank">
+         	<button type="submit" class = "btn">Go Login</button>
+        </form>
+
   </form>
 </div><!--end log form -->
 
