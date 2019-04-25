@@ -16,36 +16,40 @@ from django.contrib.auth import (
 from .forms import UserLoginForm, UserRegisterForm, UserPostForm
 from .models import Post
 
+# NOTE: some imports are basically useless, as left during testing or scrapped features
 
+# IndexView class, used to assign html pages as variables
 class IndexView(TemplateView):
     template_name_reg = "register.html"
     template_name_home = "index.html"
     template_name_disc = "disc.html"
     template_name_up = "update.html"
-    template_name_ab = "delete.html"
+    template_name_ab = "about.html"
 
 # Create your views here.
 
 # LOGIN PAGE
-def post_home(request):
+def home(request):
 
     form = UserLoginForm(request.POST or None)
     title = "Discussion"
-    context = {"form": form, "title": title}
+    context = { "form": form, "title": title } 
 
+    # terminal testing
     print("not logged on")
     
+    # form validation, user greeted with a hello message after sucessfully logging on
     if form.is_valid(): 
        username = form.cleaned_data.get("username")
        password = form.cleaned_data.get("password")
 
        user = authenticate(username = username, password = password)
        titleU = "Welcome to slackLite, " + username + "!"
-       queryset = Post.objects.all()
+       query_db = Post.objects.all()
 
-       contextU = {"form": form, "titleU": titleU, "queryset": queryset}
+       contextU = { "form": form, "titleU": titleU, "query_db": query_db }
 
-
+       # user is logged on if credentials are found in the database 
        if user is not None:
            login(request, user)
            print("logged on")
@@ -56,63 +60,69 @@ def post_home(request):
 
     return render(request, IndexView.template_name_home, context)
 
-# REGISTER PAGE
-def post_register(request):
 
+# REGISTER PAGE
+def register(request):
+
+    # terminal testing
     print("register attempt")
 
     title = "Register"
     form = UserRegisterForm(request.POST or None)
 
-    context = {"form": form, "title": title}
+    context = { "form": form, "title": title }
 
+    # form validation, username and password is saved to database
     if form.is_valid():
         user = form.save(commit = False)
         password = form.cleaned_data.get('password')
         user.set_password(password)
         user.save()
         
-        
-        newuser = authenticate(username = user.username, password = password)
-        login(request, newuser)
-        print("registered user " + newuser.username)
+        user_valid = authenticate(username = user.username, password = password)
+        login(request, user_valid)
+
+        # terminal testing
+        print("registered user " + user_valid.username + " sucessfully")
     
     return render(request, IndexView.template_name_reg, context)
 
 
 # DISCUSSIOM PAGE
-def post_disc(request):
+def disc(request):
+ 
+    query_db = ( Post.objects.all())
 
-    queryset = ( Post.objects.all())
-
-    context = {
-
-            "titleU": "Discussion Board", "queryset": queryset
-
-            }
+    context = { "titleU": "Discussion Board", "query_db": query_db }
     return render(request, IndexView.template_name_disc, context)
 
     
-
 # UPDATE PAGE
-def post_update(request):
+def update(request):
+
+    # terminal testing
+    print("create post attempt")
     form = UserPostForm(request.POST or None)
 
+    # form validation, discussion post is saved to the databse
     if form.is_valid():
 
         instance = form.save()
         instance.save()
 
-    context ={"form": form }
+        # terminal testing
+        print("user post created sucessfully")
+
+    context = { "form": form }
+
     return render(request, IndexView.template_name_up, context)
  
 
 # ABOUT PAGE
-def post_about(request):
+def about(request):
 
-
-   # return HttpResponse("Counter = " + str(request.session['counter2']))
-
+    # terminal testing
+    print("about page")
 
     context = { } 
     return render(request, IndexView.template_name_ab, context)

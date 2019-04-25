@@ -146,7 +146,7 @@ body {
         <form method = 'POST' action = ''>{% csrf_token %}
 		
 
-		{% for obj in queryset %}
+		{% for obj in query_db %}
             
                 {{ obj.title }}<br/> 
 		{{ obj.content }}<br/>

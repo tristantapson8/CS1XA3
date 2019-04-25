@@ -17,27 +17,21 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-# from django.urls import include, path
 
 from posts import views
 
 urlpatterns = [
-    url ('e/tapsonte/admin/', admin.site.urls), 
-   # url(r'^e/tapsonte/posts/$', "posts.views.post_home"),
-   # url(r'^e/tapsonte/posts/$', 'posts.views.post_home'),
-    
-   
-   url (r'^e/tapsonte/$', views.post_home),
-   url (r'^e/tapsonte/register/$', views.post_register),
-   url (r'^e/tapsonte/disc/$', views.post_disc, name = 'disc'),
-   url (r'^e/tapsonte/update/$', views.post_update),
-   url (r'^e/tapsonte/about/$', views.post_about),
-] 
 
-   # path('e/tapsonte/register/', views.posts_register),
-   # path('e/tapsonte/disc/', views.posts_disc),
-   # path('e/tapsonte/update/', views.posts_update),
-   # path('e/tapsonte/delete/', views.posts_delete),
+   # admin page url
+   url ('e/tapsonte/admin/', admin.site.urls),
+
+   # app page urls
+   url (r'^e/tapsonte/$', views.home, name = 'home'),
+   url (r'^e/tapsonte/register/$', views.register, name = 'register'),
+   url (r'^e/tapsonte/disc/$', views.disc, name = 'disc'),
+   url (r'^e/tapsonte/update/$', views.update, name = 'update'),
+   url (r'^e/tapsonte/about/$', views.about, name = 'about'),
+] 
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

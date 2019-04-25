@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+# Post class, includes post title, author, timestamps, and post content
 class Post(models.Model):
     title = models.CharField(max_length = 125)
     author = models.CharField(max_length = 125, default = '')

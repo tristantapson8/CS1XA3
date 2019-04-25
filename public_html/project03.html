@@ -1,23 +1,26 @@
-{{ form.media }}
-
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 ul{
 	padding: 0;
 	margin: 0 0 0 150px;
 	list-style:none;
 }
+
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
+
 .topnav a {
   overflow: auto;	
   float: left;
@@ -28,6 +31,7 @@ ul{
   font-size: 21px;
   font-family: Arial;
 }
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;
@@ -36,6 +40,7 @@ ul{
   background-color: #009999;
   color: white;
 }
+
 .btn {
   background-color: #009999;
   border: none;
@@ -49,52 +54,59 @@ ul{
   margin: 4px 2px;
   cursor: pointer;
 }
+
 .log-form{
  font-family: Arial;
  font-weight: bold;	 
  font-size: 25;
  color: black;
 }
+
 .logo img{
  position: absolute;
  margin-top:15px;	 
  margin-left:10px;
  
 }
+
+.btn {
+  background-color: #009999;
+  border: none;
+  color: white;
+  padding: 6px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: Arial;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 </style>
 </head>
 <body>
 
 <div class="topnav">	
   <a class="active"> slackLite </a>
-  <a href="//mac1xa3.ca/e/tapsonte/">Login</a>
-  <a href="//mac1xa3.ca/e/tapsonte/register/">Register</a>
-  <a href="//mac1xa3.ca/e/tapsonte/about/">About</a>
+  <a href="">Login</a>
+  <a href="">Register</a>
+  <a href="">About</a>
 </div>
 
-{% block content %}
-
 <div class="log-form">
+	<h2> How to run this App </h2>
+        <h5> - Cd into the /CS1XA3/Project03 directory </h5>
+        <h5> - Run the command "source bin/activate" in the terminal </h5>
+        <h5> - Then cd into /CS1XA3/Project03/django_project </h5>
+        <h5> - Finally, run the command "python manage.py runserver localhost:10054" in the terminal </h5>
+        <h5> - Then click the button below to go to the login page! </h5>
 
-        <h2> Features of this Appp</h2>
-        <h5> - Use the register page to sign up with a username and password </h5>
-        <h5> - Once registered, use the login page to login with your credentials </h5>
-        <h5> - After logging in, you can view the discussion board, or create a post </h5>
-        <h5> - Logout once you are done using the app! </h5>
-
-	<form action="https://mac1xa3.ca/e/tapsonte/" method="get" target="_blank">
-         	<button type="submit" class = "btn">Go Login</button>
+        <form action="https://mac1xa3.ca/e/tapsonte/" method="get" target="_blank">
+         	<button type="submit" class = "btn">Click me</button>
         </form>
-
   </form>
 </div><!--end log form -->
-
-
-
-
-
-{% endblock content %}
-
 
 </body>
 </html>
