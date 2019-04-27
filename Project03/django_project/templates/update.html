@@ -6,14 +6,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
+
 .topnav a {
   overflow: auto;	
   float: left;
@@ -24,14 +27,17 @@ body {
   font-size: 21px;
   font-family: Arial;
 }
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
+
 .topnav a.active {
   background-color: #009999;
   color: white;
 }
+
 .btn {
   background-color: #009999;
   border: none;
@@ -59,7 +65,6 @@ body {
 <body>
 
 <div class="topnav">
-  <!-- a class="active"> sl </a> -->	
   <a class="active"> slackLite </a>
   <a href="//mac1xa3.ca/e/tapsonte/">Logout</a>
   <a href="//mac1xa3.ca/e/tapsonte/disc/">Discussion Board</a>
@@ -70,21 +75,12 @@ body {
 <div class="post-form">
         <h2> Create Post </h2>
         <form method = 'POST' action = ''>{% csrf_token %}
-                
-	   
-                {{form.as_p}}	
+              
+                {{form.as_p}}
 
-		<!-- <input class="form-control" placeholder="Username" id="username" maxlength="254" name="username" type="text" required autofocus=""/> -->
-		<!-- <input type="password" class="form-control" placeholder="Password" id="id_password" name="password"  required /> -->
-
-    <button type="submit" class="btn">Post</button>
+        <button type="submit" class="btn">Post</button>
   </form>
-</div><!--end log form -->
-
-
-   {% block header %}
-   <!-- <img src={% static "slack-1-logo-png-transparent.png" %} width="460" height="345"> -->
-   {% endblock %}
+</div><!--end post form -->
 
 {% endblock content %}
 

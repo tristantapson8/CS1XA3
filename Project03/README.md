@@ -2,6 +2,9 @@
 
 This app is a very simple discussion board made with the use of database functionality;
 included is a user authentication system that allows for registration, login, and logout.
+The app code is found mostly in /CS1XA3/Project03/django_project/posts, as well as
+/CS1XA3/Project03/django_project/django_project for settings and url routing. Html pages
+for the app are also found in /CS1XA3/Project03/django_project/templates.
 
 App page can be found at: https://mac1xa3.ca/u/tapsonte/project03.html
 
@@ -30,4 +33,4 @@ App page can be found at: https://mac1xa3.ca/u/tapsonte/project03.html
   
   - Databases: User posts can be created and stored in a database with various fields, primarily
              author, post content, and a timestamp. These posts are then displayed on the
-             main discussion board page, which can be filted by content with the search bar.
+             ain discussion board page, which can be filted by content with the search bar.
